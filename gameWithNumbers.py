@@ -1,9 +1,10 @@
 import random
 
-top_of_range = input('Введите число: ')
+top_of_range = input('Введите максимальное число (создастся диапазон, до куда придётся угадывать число): ')
 
 if top_of_range.isdigit():
     top_of_range = int(top_of_range)
+
     if top_of_range <= 0:
         print('Напишите число больше нуля в следующий раз')
         quit()
@@ -17,7 +18,7 @@ guesses = 0
 
 while True:
     guesses += 1
-    user_guess = input('Попробуй угадать число: ')
+    user_guess = input('Попробуй угадать загаданное число: ')
     if user_guess.isdigit():
         user_guess = int(user_guess)
     else:
@@ -27,10 +28,9 @@ while True:
     if user_guess == random_number:
         print('Ты угадал число')
         break
+    elif user_guess > random_number:
+        print('Число ниже твоего')
     else:
-        if user_guess > random_number:
-            print('Число выше твоего')
-        else:
-            print('Число ниже твоего')
+        print('Число выше твоего')
 
 print(f'У тебя было {guesses} попыток')
