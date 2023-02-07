@@ -19,10 +19,22 @@ while True:
     computer_pick = options[random_number]
     print('"Искуственный интеллект" выбрал', computer_pick + '.')
 
-    if user_input == "rock" and computer_pick == "ножницы":
+    if user_input == "камень" and computer_pick == "ножницы":
         print('Вы выиграли!')
         user_wins += 1
 
+    elif user_input == "бумага" and computer_pick == "камень":
+        print('Вы выиграли!')
+        user_wins += 1
 
+    elif user_input == "ножницы" and computer_pick == "бумага":
+        print('Вы выиграли!')
+        user_wins += 1
 
-print('Пока')
+    else:
+        print('Ты проиграл. Искуственный интеллект победил. Ты уволен. На твоё место поставили робота.')
+        computer_wins += 1
+
+print(f'Ты выиграл {user_wins} раз')
+print(f'Ты выиграл {computer_wins} раз')
+print('Хорошего дня')
