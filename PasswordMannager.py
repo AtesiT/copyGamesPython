@@ -15,8 +15,7 @@ def load_key():
     return key
 
 
-master_pwd = input('Какой "мастер" паролей? ')
-key = load_key() + master_pwd.encode()
+key = load_key()
 fer = Fernet(key)
 
 
@@ -26,7 +25,7 @@ def view():
         for line in f.readlines():
             data = line.rstrip()
             user, passw = data.split(' | ')
-            print('Логин: ', user, '| Пароль: ', fer.decrypt(pwd.encode()).decode())
+            print('Логин: ', user, '| Пароль: ', fer.decrypt(passw.encode()).decode())
 
 
 
